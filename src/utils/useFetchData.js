@@ -2,10 +2,17 @@ import { useEffect, useState } from 'react';
 
 export function useFetchData(query = '') {
     const [meals, setMeals] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
 
     useEffect(() => {
+        const trimmed = query.trim();
+
+        if (trimmed.length < 3) {
+            setMeals([]);
+            setIsError(false);
+            return;
+        }
         const controller = new AbortController();
         const fetchMeals = async () => {
             try {
@@ -16,7 +23,7 @@ export function useFetchData(query = '') {
                 );
                 const data = await res.json();
                 setMeals(data?.meals || []);
-                console.log(data);
+                // console.log(data?.meals);
             } catch (error) {
                 if (error.name === 'AbortError') return;
                 console.log('Error:', error);
