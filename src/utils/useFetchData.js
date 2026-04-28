@@ -7,12 +7,8 @@ export function useFetchData(query = '') {
 
     useEffect(() => {
         const trimmed = query.trim();
+        if (trimmed.length < 3) return;
 
-        if (trimmed.length < 3) {
-            setMeals([]);
-            setIsError(false);
-            return;
-        }
         const controller = new AbortController();
         const fetchMeals = async () => {
             try {
