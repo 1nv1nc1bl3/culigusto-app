@@ -1,9 +1,10 @@
 import { useCategories } from '../../utils/useCategories';
+import Loader from './Loader';
 
 export default function CategoriesSection() {
     const { categories, isCatLoading, isCatError } = useCategories();
 
-    if (isCatLoading) return <h2>Loading...</h2>;
+    if (isCatLoading) return <Loader />;
     if (isCatError) return <h2>Error fetching data!</h2>;
 
     return (

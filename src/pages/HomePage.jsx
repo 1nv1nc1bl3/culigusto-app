@@ -2,6 +2,7 @@ import { useFetchData } from '../utils/useFetchData';
 import MealCard from '../components/ui/MealCard';
 import { useState } from 'react';
 import CategoriesSection from '../components/ui/CategoriesSection';
+import Loader from '../components/ui/Loader';
 
 export default function HomePage() {
     const [query, setQuery] = useState('');
@@ -26,7 +27,7 @@ export default function HomePage() {
                 <CategoriesSection />
             ) : (
                 <div className='results w-full flex flex-col justify-center items-center gap-10'>
-                    {isLoading && <h2>Loading...</h2>}
+                    {isLoading && <Loader />}
                     {isError && <h2>Error fetching data!</h2>}
                     {!isLoading && !isError && (
                         <>
