@@ -13,10 +13,10 @@ export default function Navbar() {
                     Home
                 </NavLink>
                 <NavLink
-                    to='/temp'
+                    to='/favorites'
                     className={({ isActive }) => (isActive ? 'active' : '')}
                 >
-                    About
+                    Favorites
                 </NavLink>
             </div>
         </div>

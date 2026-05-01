@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useFavorites } from '../context/FavoritesContext';
 
 export default function MealPage() {
-    const { id } = useParams();
     const navigate = useNavigate();
+    const { id } = useParams();
+
+    const { favorites, toggleFavorite } = useFavorites();
 
     const [singleMeal, setSingleMeal] = useState({});
     const [loading, setLoading] = useState(false);
     const [isError, setIsError] = useState(false);
+
+    const isFavorite =
+        favorites?.some((fav) => fav.idMeal === singleMeal.idMeal) ?? false;
 
     useEffect(() => {
         const controller = new AbortController();
@@ -19,7 +25,7 @@ export default function MealPage() {
                     { signal: controller.signal },
                 );
                 const mealData = await res.json();
-                console.log(mealData);
+                // console.log(mealData);
                 setSingleMeal(mealData?.meals[0] || {});
             } catch (error) {
                 if (error.name === 'AbortError') return;
@@ -43,6 +49,12 @@ export default function MealPage() {
             </button>
             <h1>{singleMeal?.strMeal}</h1>
             <p>{singleMeal?.strInstructions}</p>
+            <button
+                onClick={() => toggleFavorite(singleMeal)}
+                className='cursor-pointer'
+            >
+                {isFavorite ? '❤️' : '🤍'}
+            </button>
         </div>
     );
 }
