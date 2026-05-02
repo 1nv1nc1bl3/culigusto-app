@@ -4,7 +4,7 @@ export default function MealCard({ meal, flagMap, isReady }) {
     return (
         <Link
             to={`/meal/${meal.idMeal}`}
-            className='flex flex-col justify-stretch items-center gap-4 min-h-[400px] px-4 py-3 rounded-sm shadow-lg/40 shadow-heading bg-beige cursor-pointer'
+            className='flex flex-col justify-stretch items-center gap-4 min-h-[400px] px-4 py-3 rounded-sm shadow-xl/30 shadow-heading bg-beige cursor-pointer'
         >
             <img
                 className='w-full h-auto object-cover'
