@@ -1,1 +1,21 @@
+@import url('https://api.fontshare.com/v2/css?f[]=outfit@400,500,600&display=swap');
+
+@font-face {
+    font-family: 'Flaviotte';
+    src: url('/src/assets/fonts/Flaviotte.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@theme {
+    --font-heading: 'Flaviotte', serif;
+    --font-body: 'Outfit', sans-serif;
+
+    --color-primary: #e67e22;
+    --color-background: #f5f3ef;
+    --color-heading: #2f3b2b;
+    --color-text: #161513;
+    --color-beige: #e5d9b6;
+}
+
 @import 'tailwindcss';

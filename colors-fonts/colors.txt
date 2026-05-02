@@ -1,0 +1,4 @@
+app background : #f5f3ef
+headings : #2F3B2B
+texts : #161513
+buttons : #E67E22
