@@ -1,4 +1,5 @@
 import { useCategories } from '../../utils/useCategories';
+import CategoryCard from './CategoryCard';
 import Loader from './Loader';
 
 export default function CategoriesSection() {
@@ -16,19 +17,10 @@ export default function CategoriesSection() {
             </h1>
             <div className='grid grid-cols-3 w-full gap-4'>
                 {featuredCats.map((category) => (
-                    <div
-                        key={category?.idCategory}
-                        className='flex flex-col justify-stretch items-center gap-4 px-4 py-3 rounded-lg shadow-lg/40 shadow-heading bg-beige cursor-pointer'
-                    >
-                        <img
-                            className='w-full'
-                            src={category?.strCategoryThumb}
-                            alt={category?.strCategory}
-                        />
-                        <h3 className='text-center capitalize'>
-                            {category?.strCategory}
-                        </h3>
-                    </div>
+                    <CategoryCard
+                        key={category.idCategory}
+                        category={category}
+                    />
                 ))}
             </div>
         </div>

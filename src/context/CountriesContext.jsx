@@ -50,7 +50,7 @@ export function CountriesProvider({ children }) {
                     flagMap[item.strCountry] = countryToFlag[item.strCountry];
                 });
 
-                console.log(flagMap);
+                // console.log(flagMap);
                 setFlagMap(flagMap);
                 setIsReady(true);
             } catch (error) {

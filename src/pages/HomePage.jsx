@@ -17,9 +17,11 @@ export default function HomePage() {
 
     return (
         <main className='flex flex-col justify-center items-center min-h-screen gap-10'>
-            <Hero />
+            {showLanding && <Hero />}
             {/* search bar & meals list */}
-            <div className='flex flex-col justify-center items-center mx-auto max-w-3xl pb-10 gap-10'>
+            <div
+                className={`${!showLanding && 'py-20'} ${showLanding && 'pb-10'} flex flex-col justify-center items-center mx-auto max-w-3xl gap-10`}
+            >
                 <SearchBar query={query} setQuery={setQuery} />
 
                 {showLanding ? (
@@ -33,16 +35,20 @@ export default function HomePage() {
                                 <h1 className='text-3xl font-semibold font-heading text-heading'>
                                     Recipes List
                                 </h1>
-                                <section className='grid grid-cols-2 lg:grid-cols-4 w-full gap-4'>
-                                    {meals.map((meal) => (
-                                        <MealCard
-                                            key={meal.idMeal}
-                                            meal={meal}
-                                            flagMap={flagMap}
-                                            isReady={isReady}
-                                        />
-                                    ))}
-                                </section>
+                                {meals.length > 0 ? (
+                                    <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-4'>
+                                        {meals.map((meal) => (
+                                            <MealCard
+                                                key={meal.idMeal}
+                                                meal={meal}
+                                                flagMap={flagMap}
+                                                isReady={isReady}
+                                            />
+                                        ))}
+                                    </section>
+                                ) : (
+                                    'No recipes found'
+                                )}
                             </>
                         )}
                     </div>

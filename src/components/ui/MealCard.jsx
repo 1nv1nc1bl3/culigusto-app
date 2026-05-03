@@ -4,7 +4,7 @@ export default function MealCard({ meal, flagMap, isReady }) {
     return (
         <Link
             to={`/meal/${meal.idMeal}`}
-            className='flex flex-col justify-stretch items-center gap-4 min-h-[400px] px-4 py-3 rounded-sm shadow-xl/30 shadow-heading bg-beige cursor-pointer'
+            className='flex flex-col justify-stretch items-center gap-4 lg:min-h-[320px] px-4 py-3 rounded-sm shadow-xl/30 shadow-heading bg-beige cursor-pointer'
         >
             <img
                 className='w-full h-auto object-cover'
@@ -15,6 +15,7 @@ export default function MealCard({ meal, flagMap, isReady }) {
                 <h3 className='text-heading font-semibold text-base/5'>
                     {meal.strMeal}
                 </h3>
+
                 <div className='flex items-center gap-2 mt-1'>
                     {isReady && flagMap[meal.strArea] && (
                         <img
