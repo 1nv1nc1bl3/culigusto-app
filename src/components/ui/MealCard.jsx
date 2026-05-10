@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-export default function MealCard({ meal, flagMap, isReady }) {
+export default function MealCard({ meal, flagMap, isReady, handleMealClick }) {
     return (
-        <Link
-            to={`/meal/${meal.idMeal}`}
+        <button
+            onClick={() => handleMealClick(meal)}
             className='flex flex-col justify-stretch items-center gap-4 lg:min-h-[320px] px-4 py-3 rounded-sm shadow-xl/30 shadow-heading bg-beige cursor-pointer'
         >
             <img
@@ -27,6 +27,6 @@ export default function MealCard({ meal, flagMap, isReady }) {
                     <span className='text-sm text-primary'>{meal.strArea}</span>
                 </div>
             </div>
-        </Link>
+        </button>
     );
 }

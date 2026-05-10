@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LuArrowLeft, LuChevronRight, LuChevronLeft } from 'react-icons/lu';
 import { useFetchCategory } from '../utils/useFetchCategory';
 import { useCountries } from '../context/CountriesContext';
@@ -17,6 +17,14 @@ export default function CategoryPage() {
         name,
     } = useFetchCategory();
 
+    const navigate = useNavigate();
+
+    const handleMealClick = (meal) => {
+        navigate(`/meal/${meal.idMeal}`, {
+            state: { from: `/category/${name}` },
+        });
+    };
+
     if (loading) return 'Loading...';
     if (error) return 'Sorry, there was an error loading category!';
 
@@ -25,10 +33,13 @@ export default function CategoryPage() {
             <div className='p-20 flex flex-col justify-center items-center mx-auto min-w-3xl gap-10'>
                 <div className='results w-full flex flex-col justify-center items-center gap-10'>
                     <div className='title-bar flex justify-between items-center w-full'>
-                        <Link to='/' className='flex items-center gap-2'>
+                        <button
+                            onClick={() => navigate('/')}
+                            className='flex items-center gap-2 cursor-pointer'
+                        >
                             <LuArrowLeft />
                             Back to Home
-                        </Link>
+                        </button>
 
                         <h1 className='text-3xl font-semibold font-heading text-heading'>
                             {name} Recipes
@@ -41,6 +52,7 @@ export default function CategoryPage() {
                                 meal={meal}
                                 flagMap={flagMap}
                                 isReady={isReady}
+                                handleMealClick={handleMealClick}
                             />
                         ))}
                     </div>
