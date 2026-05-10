@@ -13,8 +13,8 @@ export default function Header() {
 
     return (
         <>
-            <header className='bg-heading w-full px-8 bg-heading'>
-                <div className='header-container flex justify-between items-center max-w-6xl mx-auto'>
+            <header className='bg-heading w-full h-[70px] flex justify-start items-center px-8 bg-heading'>
+                <div className='header-container flex justify-between items-center w-full max-w-6xl mx-auto'>
                     {/* Logo */}
                     <div className='logo-container flex items-center min-h-[50px]'>
                         <Link
@@ -68,6 +68,13 @@ export default function Header() {
                         >
                             Home
                         </NavLink>
+                        {/* <NavLink
+                            to='/categories'
+                            onClick={() => setMenuOpen(false)}
+                            className='capitalize'
+                        >
+                            Categories
+                        </NavLink> */}
                         <NavLink
                             to='/favorites'
                             onClick={() => setMenuOpen(false)}

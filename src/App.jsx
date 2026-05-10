@@ -11,6 +11,7 @@ export default function App() {
         <Routes>
             <Route element={<Layout />}>
                 <Route path='/' element={<HomePage />} />
+                {/* <Route path='/categories' element={<CategoryPage />} /> */}
                 <Route path='/category/:name' element={<CategoryPage />} />
                 <Route path='/meal/:id' element={<MealPage />} />
                 <Route path='/favorites' element={<FavoritesPage />} />

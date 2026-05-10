@@ -10,19 +10,19 @@ export default function RandomMealHero() {
 
     // Main render
     return (
-        <div className='flex flex-col justify-center text-text'>
-            <h2 className='text-3xl md:text-5xl font-heading text-heading text-center mb-6'>
+        <div className='flex flex-col justify-center text-text gap-6'>
+            <h2 className='text-3xl text-center font-semibold font-heading text-heading'>
                 Meal of the Day
             </h2>
-            <div className='rounded-2xl overflow-hidden mb-8'>
+            <div className=''>
                 <img
                     src={randomMeal?.strMealThumb}
                     alt={randomMeal?.strMeal}
-                    className='w-full h-[300px] md:h-[450px] object-cover'
+                    className='w-full h-[300px] md:h-[450px] object-cover flex items-center rounded-xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-linear'
                 />
             </div>
-            <div className='flex flex-col items-center font-heading mb-6'>
-                <h3 className='text-xl md:text-3xl text-heading text-center'>
+            <div className='flex flex-col items-center font-heading'>
+                <h3 className='text-lg md:text-2xl text-heading text-center font-semibold'>
                     {randomMeal?.strMeal}
                 </h3>
                 <span className='text-lg'>from {randomMeal?.strCountry}</span>
@@ -30,7 +30,7 @@ export default function RandomMealHero() {
 
             <Link
                 to={`/meal/${randomMeal.idMeal}`}
-                className='flex justify-center items-center m-auto cursor-pointer w-fit border border-primary hover:bg-primary hover:text-background transition duration-300 px-4 py-1 leading-tight'
+                className='relative w-fit mx-auto pb-2 leading-tight after:content-[""] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:after:left-0'
             >
                 View Recipe
             </Link>

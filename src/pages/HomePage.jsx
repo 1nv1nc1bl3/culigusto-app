@@ -6,6 +6,7 @@ import Loader from '../components/ui/Loader';
 import SearchBar from '../components/ui/SearchBar';
 import Hero from '../components/ui/Hero';
 import RandomMealHero from '../components/layout/RandomMealHero';
+import CategoriesSection from '../components/ui/CategoriesSection';
 import { useNavigate } from 'react-router-dom';
 
 export default function HomePage() {
@@ -25,7 +26,7 @@ export default function HomePage() {
     };
 
     return (
-        <main className='flex flex-col justify-center items-center min-h-screen gap-10'>
+        <main className='flex flex-col justify-center items-center min-h-screen gap-12'>
             {showLanding && <Hero />}
             {/* search bar & meals list */}
             <div
@@ -34,9 +35,12 @@ export default function HomePage() {
                 <SearchBar query={query} setQuery={setQuery} />
 
                 {showLanding ? (
-                    <RandomMealHero />
+                    <div className='flex flex-col justify-center align-center gap-12'>
+                        <RandomMealHero />
+                        <CategoriesSection />
+                    </div>
                 ) : (
-                    <div className='results w-full flex flex-col justify-center items-center gap-10'>
+                    <div className='results w-full h-screen flex flex-col justify-start items-center gap-10'>
                         {isLoading && <Loader />}
                         {isError && <h2>Error fetching data!</h2>}
                         {!isLoading && !isError && (

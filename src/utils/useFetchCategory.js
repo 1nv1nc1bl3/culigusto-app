@@ -13,6 +13,7 @@ export function useFetchCategory() {
         (currentPage - 1) * mealsPerPage,
         currentPage * mealsPerPage,
     );
+
     const pagesArray = Array.from({ length: totalPages }, (_, i) => i + 1);
 
     const { name } = useParams();

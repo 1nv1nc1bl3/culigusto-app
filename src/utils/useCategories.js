@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 export function useCategories() {
     const [categories, setCategories] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
     const [isCatLoading, setIsCatLoading] = useState(true);
     const [isCatError, setIsCatError] = useState(false);
 
@@ -29,5 +30,11 @@ export function useCategories() {
         return () => controller.abort();
     }, []);
 
-    return { categories, isCatLoading, isCatError };
+    return {
+        categories,
+        isCatLoading,
+        isCatError,
+        currentPage,
+        setCurrentPage,
+    };
 }
