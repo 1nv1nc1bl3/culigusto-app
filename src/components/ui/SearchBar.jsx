@@ -4,7 +4,7 @@ function SearchBar({ query, setQuery }) {
             <input
                 type='text'
                 placeholder='Search for a recipe...'
-                className='border border-2 outline-none border-primary rounded-md p-4'
+                className='border border-2 outline-none border-primary rounded-md p-4 w-full'
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             />

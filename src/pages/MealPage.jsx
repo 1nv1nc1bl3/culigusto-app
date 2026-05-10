@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import useSingleMeal from '../utils/useSingleMeal';
 
 export default function MealPage() {
@@ -70,12 +71,18 @@ export default function MealPage() {
 
             {/* Meta Info */}
             <div className='flex gap-2 mb-8 text-sm'>
-                <button
+                {/* <button
                     onClick={() => navigate(location.state?.from || '/')}
                     className='px-3 py-1 rounded-full bg-beige text-heading cursor-pointer'
                 >
                     {singleMeal?.strCategory}
-                </button>
+                </button> */}
+                <Link
+                    to={`/category/${singleMeal?.strCategory}`}
+                    className='px-3 py-1 rounded-full bg-beige text-heading cursor-pointer'
+                >
+                    {singleMeal?.strCategory}
+                </Link>
                 <span className='px-3 py-1 rounded-full bg-beige text-heading'>
                     {singleMeal?.strArea}
                 </span>

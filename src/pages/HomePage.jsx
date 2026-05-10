@@ -2,10 +2,11 @@ import { useFetchData } from '../utils/useFetchData';
 import { useCountries } from '../context/CountriesContext';
 import { useState } from 'react';
 import MealCard from '../components/ui/MealCard';
-import CategoriesSection from '../components/ui/CategoriesSection';
 import Loader from '../components/ui/Loader';
 import SearchBar from '../components/ui/SearchBar';
 import Hero from '../components/ui/Hero';
+import RandomMealHero from '../components/layout/RandomMealHero';
+import { useNavigate } from 'react-router-dom';
 
 export default function HomePage() {
     const [query, setQuery] = useState('');
@@ -13,7 +14,15 @@ export default function HomePage() {
     const { meals, isLoading, isError } = useFetchData(query);
     const { flagMap, isReady } = useCountries();
 
+    const navigate = useNavigate();
+
     const showLanding = query.trim().length < 3;
+
+    const handleMealClick = (meal) => {
+        navigate(`/meal/${meal.idMeal}`, {
+            state: { from: `/` },
+        });
+    };
 
     return (
         <main className='flex flex-col justify-center items-center min-h-screen gap-10'>
@@ -25,7 +34,7 @@ export default function HomePage() {
                 <SearchBar query={query} setQuery={setQuery} />
 
                 {showLanding ? (
-                    <CategoriesSection />
+                    <RandomMealHero />
                 ) : (
                     <div className='results w-full flex flex-col justify-center items-center gap-10'>
                         {isLoading && <Loader />}
@@ -43,6 +52,9 @@ export default function HomePage() {
                                                 meal={meal}
                                                 flagMap={flagMap}
                                                 isReady={isReady}
+                                                handleMealClick={
+                                                    handleMealClick
+                                                }
                                             />
                                         ))}
                                     </section>
