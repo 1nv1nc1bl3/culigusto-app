@@ -14,8 +14,6 @@ export default function CategoriesSection() {
         setCurrentPage,
     } = useCategories();
 
-    // const featuredCats = (categories ?? []).slice(0, 6);
-
     const carouselRef = useRef(null);
 
     // Carousel
@@ -49,6 +47,7 @@ export default function CategoriesSection() {
                     />
                 ))}
             </div>
+
             {/* pagination */}
             <div className='flex items-center gap-2'>
                 <button
@@ -106,7 +105,7 @@ export default function CategoriesSection() {
                 to={'/categories'}
                 className='relative w-fit mx-auto pb-2 leading-tight after:content-[""] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:after:left-0'
             >
-                All Categories
+                Explore All Categories
             </Link>
         </div>
     );

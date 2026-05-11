@@ -10,7 +10,7 @@ export default function Footer() {
                 </div>
                 <div className=''>
                     <a href='https://www.alkis.me' target='_blank' className=''>
-                        My Portfolio
+                        alkis.me
                     </a>
                 </div>
             </div>

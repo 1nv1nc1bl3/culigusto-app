@@ -71,12 +71,6 @@ export default function MealPage() {
 
             {/* Meta Info */}
             <div className='flex gap-2 mb-8 text-sm'>
-                {/* <button
-                    onClick={() => navigate(location.state?.from || '/')}
-                    className='px-3 py-1 rounded-full bg-beige text-heading cursor-pointer'
-                >
-                    {singleMeal?.strCategory}
-                </button> */}
                 <Link
                     to={`/category/${singleMeal?.strCategory}`}
                     className='px-3 py-1 rounded-full bg-beige text-heading cursor-pointer'
@@ -99,16 +93,16 @@ export default function MealPage() {
             </div>
 
             {/* Ingredients & Video */}
-            <div className='bg-beige/30 rounded-2xl p-6 flex justify-between items-stretch'>
+            <div className='bg-beige/30 rounded-2xl p-6 flex justify-between items-stretch gap-4'>
                 <div className='ingredients-container'>
                     <h2 className='text-2xl font-body mb-4 text-heading'>
                         Ingredients
                     </h2>
 
                     <div className='text-sm text-text/70'>
-                        <table className='table-auto md:table-fixed border-spacing-[7px] border-collapse'>
+                        <table className='table-auto md:table-fixed border-collapse'>
                             <thead>
-                                <tr className=''>
+                                <tr>
                                     <th className='text-md font-semibold text-left text-heading'>
                                         Ingredient
                                     </th>
@@ -118,9 +112,9 @@ export default function MealPage() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {ingredients.map((item) => (
-                                    <tr key={item.ingredient} className=''>
-                                        <td className='text-md pr-8'>
+                                {ingredients.map((item, index) => (
+                                    <tr key={index}>
+                                        <td className='text-md pr-4'>
                                             {item.ingredient}
                                         </td>
                                         <td className='text-md'>

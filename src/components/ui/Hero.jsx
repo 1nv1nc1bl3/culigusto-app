@@ -3,10 +3,11 @@ import heroImg from '../../assets/images/hero.jpg';
 export default function Hero() {
     return (
         <section
-            className='relative w-full min-h-[35rem] sm:min-h-[37rem] md:min-h-[95vh] flex items-center justify-center'
+            className='relative w-full h-[50dvh] md:h-[95dvh] lg:h-[50dvh] flex items-center justify-center'
             style={{
                 backgroundImage: `url(${heroImg})`,
                 backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center center',
             }}
         >
