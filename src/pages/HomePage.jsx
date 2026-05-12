@@ -30,7 +30,7 @@ export default function HomePage() {
             {showLanding && <Hero />}
             {/* search bar & meals list */}
             <div
-                className={`${!showLanding && 'py-20'} ${showLanding && 'pb-10'} flex flex-col justify-center items-center mx-auto max-w-3xl gap-10`}
+                className={`${!showLanding && 'py-20'} ${showLanding && 'pb-10'} flex flex-col justify-center items-center mx-auto max-w-3xl gap-10 px-12 md:px-10`}
             >
                 <SearchBar query={query} setQuery={setQuery} />
 

@@ -14,7 +14,7 @@ export default function Header() {
     return (
         <>
             <header className='bg-heading w-full h-[5dvh] flex justify-start items-center px-8 bg-heading'>
-                <div className='header-container flex justify-between items-center w-full max-w-6xl mx-auto'>
+                <div className='header-container flex justify-between items-center w-full max-w-10xl mx-auto'>
                     {/* Logo */}
                     <div className='logo-container flex items-center min-h-[50px]'>
                         <Link

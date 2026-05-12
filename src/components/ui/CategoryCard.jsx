@@ -4,7 +4,6 @@ export default function CategoryCard({ category }) {
     return (
         <Link
             to={`/category/${category.strCategory}`}
-            key={category?.idCategory}
             className='flex flex-col justify-stretch items-center gap-4 rounded-lg shadow-lg/40 shadow-heading hover:shadow-lg/60 hover:shadow-text bg-beige transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-1 transition-all ease-linear'
         >
             <img

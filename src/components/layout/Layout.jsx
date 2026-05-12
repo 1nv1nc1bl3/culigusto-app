@@ -7,7 +7,9 @@ export default function Layout() {
         <section className='full-app-page tracking-wide leading-relaxed font-body bg-background'>
             <div className='app-container mx-auto min-h-dvh w-full'>
                 <Header />
+
                 <Outlet />
+
                 <Footer />
             </div>
         </section>

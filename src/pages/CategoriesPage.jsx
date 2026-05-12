@@ -2,7 +2,10 @@ import CategoryCard from '../components/ui/CategoryCard';
 import { useCategories } from '../utils/useCategories';
 
 export default function CategoriesPage() {
-    const { categories } = useCategories();
+    const { categories, isCatLoading, isCatError } = useCategories();
+
+    if (isCatLoading) return 'Loading...';
+    if (isCatError) return 'Sorry, there was an error loading category!';
 
     return (
         <div className='max-w-3xl mx-auto flex flex-col justify-center items-center gap-6 py-10'>
